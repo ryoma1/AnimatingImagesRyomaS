@@ -8,8 +8,8 @@
 display.setStatusBar(display.HiddenStatusBar)
 
 --global variables
-scrollSpeed = 3 --Obama
-scrollSpeed2 = 6 --corndog
+scrollSpeed = 2 --Obama
+scrollSpeed2 = 5 --corndog
 scrollSpeed3 = 2 --potato
 
 --background image with width and height
@@ -19,10 +19,10 @@ local backgroundImage = display.newImageRect("Images/spacey.png", 2048, 1536)
 local corndog = display.newImageRect("Images/corndog.png", 150, 150)
 
 -- character image with width and height
-local obama = display.newImageRect("Images/obama.png", 150, 150)
+local obama = display.newImageRect("Images/obama.png", 500, 500)
 
 -- character image with width and height
-local potato = display.newImageRect("Images/potato.png", 150, 150)
+local potato = display.newImageRect("Images/potato.png", 200, 200)
 
 --set obama to be transparent
 obama.alpha = 0
@@ -65,7 +65,7 @@ local function MoveCorndog(event)
 	corndog.x = corndog.x - scrollSpeed2
 
 	-- corndog grows
-	corndog:scale(1 + 0.01, 1 + 0.01)
+	corndog:scale(1 + 0.009, 1 + 0.009)
 end
 
 -- MoveCorndog will be called over and over again
@@ -88,3 +88,17 @@ end
 
 -- MovePotato will be called over and over again
 Runtime:addEventListener("enterFrame", MovePotato)
+
+--display coloured text
+local areaText
+
+areaText = display.newText("I made ObamaCare because Obama cares", 0, 0, Arial, 50)
+
+--anchor the text and set its (x,y) position
+areaText.anchorX = 0
+areaText.anchorY = 0
+areaText.x = 20
+areaText.y = display.contentHeight/2
+
+--set the colour of the newText
+areaText:setTextColor(2, 3, 0)
